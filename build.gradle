@@ -1,0 +1,17 @@
+apply plugin: 'java'
+apply plugin: 'application'
+
+mainClassName = 'client.ClientSocket'
+
+repositories {
+    mavenCentral()
+
+}
+
+run {
+    standardInput = System.in
+}
+
+dependencies {
+    implementation 'javax.xml.bind:jaxb-api-parent:2.4.0-b180830.0359'
+}
