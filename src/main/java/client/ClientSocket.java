@@ -10,8 +10,7 @@ import java.net.Socket;
 import java.util.Arrays;
 import java.util.Base64;
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
+
 
 public class ClientSocket {
     private Socket clientSocket;
@@ -107,12 +106,10 @@ public class ClientSocket {
 
         String xmlResponse;
 
-        while (true) {
+        do {
             xmlResponse = client.sendMessage(origMsg);
 
-            if (isXMLLike(xmlResponse))
-                break;
-        }
+        } while (!isXMLLike(xmlResponse));
 
         AuditMessage encodedMsgObj = unmarshal(xmlResponse);
 
